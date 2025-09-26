@@ -1,0 +1,171 @@
+version: 2
+
+models: 
+  - name : dim_product
+    description : "Table that have all information related to product"
+    columns : 
+      - name : Product_key
+        description : "Unique identifier of product"
+        data_type : integer
+        data_tests : 
+          - unique : 
+              config : 
+                severity : error
+          - not_null : 
+              config : 
+                severity : error 
+      
+      - name : Product_code 
+        description : ""
+        data_type : text
+        data_tests : 
+          - unique : 
+              config : 
+                severity : error
+          - not_null : 
+              config : 
+                severity : error 
+      
+      - name : Product_description
+        description : ""
+        data_type : text
+
+      - name : Product_price
+        descripton : ""
+        data_type : numeric
+
+  - name : dim_customer
+    description : "Customers all information"
+    columns : 
+      - name : Customer_key
+        description : "Unique identifier of customer"
+        data_type : integer
+        data_tests : 
+          - unique : 
+              config : 
+                severity : error
+          - not_null : 
+              config : 
+                severity : error 
+      
+      - name : Customer_ID
+        description : ""
+        data_type : numeric
+      
+      - name : Country 
+        description : ""
+        data_type : text
+  
+  - name : dim_date 
+    description : ""
+    columns : 
+      - name : Date_key 
+        description : "Unique identifier of date"
+        data_type : integer
+        data_tests : 
+          - unique : 
+              config : 
+                severity : error
+          - not_null : 
+              config : 
+                severity : error 
+      
+      - name : Day_of_week
+        description : ""
+        data_type : text
+      
+      - name : Month
+        description : ""
+        data_type : text
+      
+      - name : Year 
+        description : ""
+        data_type : integer
+  - name : dim_time 
+    description : ""
+    columns : 
+      - name : Time_key
+        data_type : integer
+        description : ""
+        data_tests : 
+          - unique : 
+              config :
+                severity : warn
+          - not_null :
+              config : 
+                severity : warn 
+      - name : unique_time
+        data_type : timestamp
+        description : ""
+
+      - name : Hour 
+        data_type : integer 
+        description : ""
+      
+      - name : Minute 
+        data_type : integer
+        description : ""
+      
+      - name : Second 
+        data_type : integer 
+        description : ""
+
+      - name : Day_period
+        data_type :  text
+        description : ""
+          
+  - name : fact_sales
+    description : "Tables that have all sales and connect all dimentions with it"
+    columns : 
+      - name : Transaction_ID
+        data_type : integer
+        description : ""
+      
+      - name : Invoice_number
+        data_type : text
+        description : ""
+        date_tests : 
+          - not_null
+      
+      - name : Product_key
+        data_type : integer
+        description : ""
+        data_tests : 
+        - relationships : 
+            field : Product_key
+            to : ref('dim_product')
+            config : 
+              severity : warn
+
+      - name : Customer_key
+        data_type : integer
+        description : ""
+        date_tests : 
+          - relationships : 
+              field : Customer_key 
+              to : ref('dim_customer')
+              config : 
+                severity : warn
+                   
+      - name : Date_key
+        data_type : integer
+        description : ""
+        date_tests : 
+          - relationships : 
+              field : Date_key 
+              to : ref('dim_date')
+              config : 
+                severity : warn
+                   
+      - name : Quantity
+        data_type : integer
+        description : ""
+                   
+      - name : Total_amount
+        data_type : numeric
+        description : ""
+             
+
+      
+
+      

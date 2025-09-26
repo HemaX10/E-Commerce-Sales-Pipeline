@@ -1,0 +1,12 @@
+sales_project:
+  outputs:
+    dev:
+      dbname: sales
+      host: postgres
+      pass: postgres
+      port: 5432
+      schema: dw_sales
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev

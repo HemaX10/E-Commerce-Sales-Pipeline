@@ -1,0 +1,63 @@
+
+version: 2
+
+sources: 
+  - name : staging 
+    description : "Staging data from sales source data"
+    database : "sales"
+    schema : "sales"
+    tables : 
+      - name : transactions
+
+models : 
+  - name : stg_transactions
+    description : "Total transactions happend"
+    columns : 
+      - name : Transaction_ID
+        data_type : text
+        description : "A unique number for every transaction"
+        data_tests : 
+          - unique:
+              config : 
+                severity : error
+          - not_null : 
+              config : 
+                severity : error 
+
+      - name : Invoice_number 
+        data_type : text
+        description : "A 6-digit integral number uniquely assigned to each transaction. If this code starts with letter 'c', it indicates a cancellation"
+
+      - name : Product_code 
+        data_type : text 
+        description : "A 5-digit integral number uniquely assigned to each distinct product"
+
+      - name : Product_description 
+        data_type : text
+        description : "Product name"
+      
+      - name : Quantity 
+        data_type : integer
+        description : "The quantities of each product (item) per transaction"
+
+      - name : Invoice_date 
+        data_type : timestamp
+        description : "The day and time when each transaction was generated"
+      
+      - name : Unit_price 
+        data_type : numeric
+        description : "Product price per unit"
+
+      - name : Customer_ID 
+        data_type : numeric
+        description : "A 5-digit integral number uniquely assigned to each customer"
+      
+      - name : Country 
+        data_type : text 
+        description : "The name of the country where each customer resides"
+
+      - name : Total_amount 
+        data_type : numeric
+        description : ""
+
+
