@@ -1,2 +1,7 @@
 issues faced us when making this project.docx
+load_data_postgresDBT.py
 *.log
+dbt/logs/
+airflow/logs/
+airflow/data/
+airflow/plugins/
