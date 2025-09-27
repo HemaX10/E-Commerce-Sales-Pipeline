@@ -9,7 +9,7 @@ services:
     volumes:
       - C:/DockerVolumes/postgres/data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "2000:5433"
     networks:
       - sales-network
     command: >
@@ -28,7 +28,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: "pgadmin@pgadmin.com"
       PGADMIN_DEFAULT_PASSWORD: "pgadmin"
     ports:
-      - "5050:80"
+      - "3030:80"
     depends_on:
       - postgres
     networks:
