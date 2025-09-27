@@ -28,12 +28,13 @@ The pipeline is designed to handle large volumes of data efficiently and provide
 
 ## 🗂️ Pipeline Workflow
 1. **Extract & Load**: Load raw CSV/transactional sales data into PostgreSQL using Airflow.  
-2. **Transform**: Clean and standardize data (e.g., date formats, handling missing values).  
+2. **Transform**: Clean and standardize data (e.g., date formats, handling missing values).
+![Airflow Workflow](./images/airflow%20workflow.png)  
 3. **Data Warehouse with dbt**:
    - Built **star schema** with **Fact Table** (sales) and **Dimension Tables** (date, product, customer, time).
    - Applied **macros** and transformations to ensure consistency and accuracy.  
 
-![DBT Schema](./images/dbt%20dag.png)  
+![DBT Schema](./images/dbt-dag.png)  
 *Figure 2: Data Warehouse Star Schema built using dbt*
 
 4. **Analytics & Dashboard**:
@@ -64,7 +65,7 @@ The dashboard provides:
 
 ![Dashboard](./images/sales%20overview.png)  
 ![Dashboard](./images/sales.png)  
-*Figure 3: Looker Studio Dashboard with KPIs & Trends*
+*Figure 3: Power BI Dashboard with KPIs & Trends*
 
 ---
 
