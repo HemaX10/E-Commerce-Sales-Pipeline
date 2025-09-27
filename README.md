@@ -73,3 +73,31 @@ The dashboard provides:
 1. Clone the repo:  
    ```bash
    git clone https://github.com/HemaX10/E-Commerce-Sales-Pipeline.git
+2. Spin up Docker containers:
+   ```bash
+   docker-compose up
+3. Trigger Airflow DAG for ETL.
+4. Run dbt models:
+   ```bash
+   dbt run
+5. Connect To power BI
+
+---
+
+## 📚 Learnings
+- Hands-on experience with orchestrating pipelines using Airflow
+- Building data warehouse models with dbt
+- Designing star schema for analytics
+- Creating professional dashboards from raw dat
+
+---
+
+## ✅ Conclusion
+This project demonstrates how to build a full data pipeline from ingestion to analytics.  
+By combining **Airflow, PostgreSQL, dbt, and Looker Studio**, we created a scalable solution that turns raw e-commerce data into actionable business insights.  
+
+---
+
+## 🙌 Acknowledgements
+Thanks for checking out this project! 🚀  
+Feel free to fork the repo, open issues, or suggest improvements.  
