@@ -33,7 +33,7 @@ The pipeline is designed to handle large volumes of data efficiently and provide
    - Built **star schema** with **Fact Table** (sales) and **Dimension Tables** (date, product, customer, time).
    - Applied **macros** and transformations to ensure consistency and accuracy.  
 
-![DBT Schema](./images/dbt dag.png)  
+![DBT Schema](./images/"dbt dag".png)  
 *Figure 2: Data Warehouse Star Schema built using dbt*
 
 4. **Analytics & Dashboard**:
